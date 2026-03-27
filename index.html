@@ -1692,7 +1692,7 @@
     <div id="card-letter" class="card">
         <div class="romantic-card rc-ethereal" style="max-width:650px;">
             <div class="letter-header">💌 A Letter For You</div>
-            <div class="letter-line" data-line="0">Hey baby,</div>
+            <div class="letter-line" data-line="0">Hey Kulsum,</div>
             <div class="letter-line" data-line="1">Happy Birthday to the most amazing person in my life! 🎂</div>
             <div class="letter-line" data-line="2">Every day with you feels like a celebration.</div>
             <div class="letter-line" data-line="3">You make even the ordinary moments feel magical. ✨</div>
@@ -1984,7 +1984,7 @@
             btn.style.pointerEvents = 'auto';
 
             // Load and play local audio file
-            audioPlayer.src = 'audio/' + audioFilename + '.mp3';
+            audioPlayer.src = 'audio/' + audioFilename + '.mpeg';
             audioPlayer.play().catch(function () {
                 // Audio file may not exist yet — fail silently
             });
@@ -1992,6 +1992,15 @@
         }
 
         function skipSoundtrack() {
+            // Stop any playing music and reset audio state
+            audioPlayer.pause();
+            audioPlayer.currentTime = 0;
+            audioPlayer.src = '';
+            selectedAudioFile = null;
+            currentSongName = '';
+            isPlaying = false;
+            // Hide the mini player
+            document.getElementById('mini-player').classList.remove('visible');
             goToCard('card-scrapbook');
         }
 
@@ -2045,7 +2054,7 @@
         //     // { type: 'video', file: 'my-video.mp4' },
         // ];
 
-        var CAPTIONS = ['Us ❤️', 'Together forever 🌟', 'My favorite person 💖', 'Always & forever 💗', 'Beautiful moments 💕', 'Our story 🩷', 'Best memories 💘', 'My sunshine 🌸', 'You & me 💝', 'Love you 💞'];
+        var CAPTIONS = ['Us ❤️', 'Together 🌟', 'My favorite person 💖', 'my happiness 🫠', 'Beautiful moments 💕', 'Our story 🩷', 'Best memories 💘', 'My sunshine 🌸', 'You & me 💝', 'Love you 💞'];
         var ROTATIONS = [-2, 3, -4, 2, -3, 3, -2, 3, -4, 3];
 
         var currentScrapIndex = 0;
