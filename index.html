@@ -1795,7 +1795,7 @@
     <!-- ===== CARD 4: SOUNDTRACK ===== -->
     <div id="card-soundtrack" class="card">
         <div class="romantic-card rc-starlight">
-            <button class="skip-btn" onclick="skipSoundtrack()">Skip ⏭</button>
+            <!-- <button class="skip-btn" onclick="skipSoundtrack()">Skip ⏭</button> -->
             <div class="title soundtrack-title">🎵 Pick a Soundtrack</div>
             <p class="soundtrack-subtitle">Choose the vibe for your surprise</p>
             <div class="song-grid">
@@ -2247,6 +2247,18 @@
                 isPlaying = false;
                 document.getElementById('mini-player').classList.add('paused');
             } else {
+                // If reminder audio is playing, stop it first
+                if (reminderIsPlaying) {
+                    reminderAudioPlayer.pause();
+                    reminderAudioPlayer.currentTime = 0;
+                    reminderIsPlaying = false;
+                    reminderCurrentTrack = -1;
+                    document.querySelectorAll('.reminder-track').forEach(function(t) {
+                        t.classList.remove('playing');
+                        t.querySelector('.reminder-track-icon i').className = 'fa-solid fa-play';
+                    });
+                    bgAudioWasPlaying = false;
+                }
                 audioPlayer.play().catch(function () { });
                 isPlaying = true;
                 document.getElementById('mini-player').classList.remove('paused');
@@ -2378,18 +2390,18 @@
             lines.forEach((line, i) => {
                 setTimeout(() => {
                     line.classList.add('visible');
-                }, delay + i * 200);
+                }, delay + i * 1000);
             });
 
             // Show signature after all lines
             setTimeout(() => {
                 sign.classList.add('visible');
-            }, delay + lines.length * 200);
+            }, delay + lines.length * 1000);
 
             // Show button after signature
             setTimeout(() => {
                 btnContainer.classList.add('visible');
-            }, delay + lines.length * 200 + 1000);
+            }, delay + lines.length * 1000 + 1000);
         }
 
 
@@ -2440,7 +2452,7 @@
                     nextBtn.onclick = function () { goToCard('card-balloons'); };
                     nextBtn.style.animation = 'gradientShift 3s ease infinite';
                     submsg.appendChild(nextBtn);
-                }, 3000);
+                }, 1500);
             };
         }
 
@@ -2626,13 +2638,7 @@
             bgAudioSrc = audioPlayer.src || '';
             bgAudioTime = audioPlayer.currentTime || 0;
 
-            // Pause background audio
-            if (bgAudioWasPlaying) {
-                audioPlayer.pause();
-                isPlaying = false;
-                document.getElementById('mini-player').classList.add('paused');
-                updateMiniPlayerIcon();
-            }
+            // (bg audio is NOT paused here — it only pauses when a reminder track plays)
 
             // Reset reminder state
             reminderCurrentTrack = -1;
@@ -2647,6 +2653,30 @@
             });
         }
 
+        function pauseBgAudio() {
+            if (!audioPlayer.paused) {
+                bgAudioWasPlaying = true;
+                bgAudioSrc = audioPlayer.src || '';
+                bgAudioTime = audioPlayer.currentTime || 0;
+                audioPlayer.pause();
+                isPlaying = false;
+                document.getElementById('mini-player').classList.add('paused');
+                updateMiniPlayerIcon();
+            }
+        }
+
+        function resumeBgAudio() {
+            if (bgAudioWasPlaying && bgAudioSrc) {
+                audioPlayer.src = bgAudioSrc;
+                audioPlayer.currentTime = bgAudioTime;
+                audioPlayer.play().catch(function() {});
+                isPlaying = true;
+                document.getElementById('mini-player').classList.remove('paused');
+                updateMiniPlayerIcon();
+                bgAudioWasPlaying = false;
+            }
+        }
+
         function playReminderTrack(el, index) {
             var tracks = document.querySelectorAll('.reminder-track');
 
@@ -2655,16 +2685,22 @@
                 reminderAudioPlayer.pause();
                 reminderIsPlaying = false;
                 el.querySelector('.reminder-track-icon i').className = 'fa-solid fa-play';
+                // Resume bg audio when reminder paused
+                resumeBgAudio();
                 return;
             }
             if (reminderCurrentTrack === index && !reminderIsPlaying) {
+                // Pause bg audio when reminder resumes
+                pauseBgAudio();
                 reminderAudioPlayer.play().catch(function() {});
                 reminderIsPlaying = true;
                 el.querySelector('.reminder-track-icon i').className = 'fa-solid fa-pause';
                 return;
             }
 
-            // Switch to a new track
+            // Switch to a new track — pause bg audio
+            pauseBgAudio();
+
             tracks.forEach(function(t) {
                 t.classList.remove('playing');
                 t.querySelector('.reminder-track-icon i').className = 'fa-solid fa-play';
@@ -2690,14 +2726,7 @@
             reminderCurrentTrack = -1;
 
             // Resume background audio if it was playing before
-            if (bgAudioWasPlaying && bgAudioSrc) {
-                audioPlayer.src = bgAudioSrc;
-                audioPlayer.currentTime = bgAudioTime;
-                audioPlayer.play().catch(function() {});
-                isPlaying = true;
-                document.getElementById('mini-player').classList.remove('paused');
-                updateMiniPlayerIcon();
-            }
+            resumeBgAudio();
 
             goToCard('card-finale');
         }
@@ -2708,6 +2737,8 @@
             document.querySelectorAll('.reminder-track').forEach(function(t) {
                 t.querySelector('.reminder-track-icon i').className = 'fa-solid fa-play';
             });
+            // Resume bg audio when reminder ends
+            resumeBgAudio();
         });
 
 
