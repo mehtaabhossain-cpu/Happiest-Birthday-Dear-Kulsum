@@ -4,7 +4,6 @@
 // Videos found: 2
 var MEDIA_LIST = [
     { type: 'image', file: 'eid1.jpeg' },
-    { type: 'image', file: 'eid2 copy.jpeg' },
     { type: 'image', file: 'eid2.jpeg' },
     { type: 'image', file: 'roseOnHead.jpeg' },
     { type: 'video', file: 'reactionWhileReading.mp4' },
