@@ -2390,18 +2390,18 @@
             lines.forEach((line, i) => {
                 setTimeout(() => {
                     line.classList.add('visible');
-                }, delay + i * 1000);
+                }, delay + i * 1500);
             });
 
             // Show signature after all lines
             setTimeout(() => {
                 sign.classList.add('visible');
-            }, delay + lines.length * 1000);
+            }, delay + lines.length * 1500);
 
             // Show button after signature
             setTimeout(() => {
                 btnContainer.classList.add('visible');
-            }, delay + lines.length * 1000 + 1000);
+            }, delay + lines.length * 1500 + 1000);
         }
 
 
