@@ -1884,6 +1884,7 @@
             <div class="letter-line" data-line="19">🎉🌸 Once again Happy Birthday, Kulsum 🌸🎉</div>
             <div class="letter-line" data-line="20">May Allah bless you with joy, success, good health, and a year full of magical moments ✨🤲💐</div>
             <div class="letter-line" data-line="21">Stay blessed… stay happy… stay as precious as you are 💝✨.</div>
+            <div class="letter-line" data-line="22">Love you Kulsum, Love you a lot 💖🌸</div>
             <div class="letter-sign">Forever yours, Mehtaab ✍️❤️</div>
             <div class="letter-btn-container">
                 <button class="btn btn-primary" onclick="goToCard('card-cutiepie')">
@@ -2010,31 +2011,31 @@
             <p class="reminder-subtitle">Tap a track to play 💜</p>
             <div class="reminder-tracks" id="reminder-tracks">
                 <div class="reminder-track" onclick="playReminderTrack(this, 0)">
-                    <img class="reminder-track-img" src="images/reminderPic1.jpg" alt="Track 1"
+                    <img class="reminder-track-img" src="images/reminderPic1.jpeg" alt="Track 1"
                         onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 72 72%22><rect fill=%22%231a0a2e%22 width=%2272%22 height=%2272%22 rx=%2212%22/><text x=%2236%22 y=%2242%22 text-anchor=%22middle%22 font-size=%2228%22>🎵</text></svg>'">
                     <div class="reminder-track-info">
                         <div class="reminder-track-name">Track Title 1</div>
                         <div class="reminder-track-artist">Artist Name 1</div>
                     </div>
-                    <div class="reminder-track-icon"><i class="fa-solid fa-play"></i></div>
+                    <!-- <div class="reminder-track-icon"><i class="fa-solid fa-play"></i></div> -->
                 </div>
                 <div class="reminder-track" onclick="playReminderTrack(this, 1)">
-                    <img class="reminder-track-img" src="images/reminderPic2.jpg" alt="Track 2"
+                    <img class="reminder-track-img" src="images/reminderPic2.jpeg" alt="Track 2"
                         onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 72 72%22><rect fill=%22%231a0a2e%22 width=%2272%22 height=%2272%22 rx=%2212%22/><text x=%2236%22 y=%2242%22 text-anchor=%22middle%22 font-size=%2228%22>🎶</text></svg>'">
                     <div class="reminder-track-info">
                         <div class="reminder-track-name">Track Title 2</div>
                         <div class="reminder-track-artist">Artist Name 2</div>
                     </div>
-                    <div class="reminder-track-icon"><i class="fa-solid fa-play"></i></div>
+                    <!-- <div class="reminder-track-icon"><i class="fa-solid fa-play"></i></div> -->
                 </div>
                 <div class="reminder-track" onclick="playReminderTrack(this, 2)">
-                    <img class="reminder-track-img" src="images/reminderPic3.jpg" alt="Track 3"
+                    <img class="reminder-track-img" src="images/reminderPic3.jpeg" alt="Track 3"
                         onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 72 72%22><rect fill=%22%231a0a2e%22 width=%2272%22 height=%2272%22 rx=%2212%22/><text x=%2236%22 y=%2242%22 text-anchor=%22middle%22 font-size=%2228%22>🎧</text></svg>'">
                     <div class="reminder-track-info">
                         <div class="reminder-track-name">Track Title 3</div>
                         <div class="reminder-track-artist">Artist Name 3</div>
                     </div>
-                    <div class="reminder-track-icon"><i class="fa-solid fa-play"></i></div>
+                    <!-- <div class="reminder-track-icon"><i class="fa-solid fa-play"></i></div> -->
                 </div>
             </div>
             <button class="btn btn-primary" onclick="leaveReminderCard()">🎆 See the Grand Finale!</button>
@@ -2070,14 +2071,14 @@
                     <span class="star" data-val="5" onclick="rateStar(5)">★</span>
                 </div>
             </div>
-            <div class="form-group">
+            <!-- <div class="form-group">
                 <label class="form-label">Make a birthday wish 🌟</label>
                 <input class="form-input" type="text" placeholder="Type your wish here..." id="wish-input">
             </div>
             <div class="form-group">
                 <label class="form-label">What's your favorite memory of us? 💭</label>
                 <textarea class="form-textarea" placeholder="Tell me..." id="memory-input"></textarea>
-            </div>
+            </div> -->
             <!-- <div style="text-align: center; margin-top: 10px;">
             <button class="btn btn-primary" onclick="submitForm()">
                 🎂 See the Cake!
@@ -2377,18 +2378,18 @@
             lines.forEach((line, i) => {
                 setTimeout(() => {
                     line.classList.add('visible');
-                }, delay + i * 2000);
+                }, delay + i * 200);
             });
 
             // Show signature after all lines
             setTimeout(() => {
                 sign.classList.add('visible');
-            }, delay + lines.length * 2000);
+            }, delay + lines.length * 200);
 
             // Show button after signature
             setTimeout(() => {
                 btnContainer.classList.add('visible');
-            }, delay + lines.length * 2000 + 1000);
+            }, delay + lines.length * 200 + 1000);
         }
 
 
@@ -2514,7 +2515,7 @@
             {
                 q: "What would I choose — a day without food or a day without you?",
                 options: ["Without food 🍕", "Without you 😢", "Neither! Both are needed", "You'd eat AND stay 😏"],
-                answer: 1,
+                answer: 0,
                 right: "You know me so well! 🥰",
                 wrong: "I'd rather starve than miss a day with you! 🍕❤️"
             },
