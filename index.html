@@ -1923,21 +1923,33 @@
                 emotions grow heavy,
                 in the smile ☺️ that comes a little too softly, as if hiding a truth your heart wants to speak… but
                 can’t.🙃</div>
-            <div class="letter-line" data-line="7">And it’s okay. You don’t have to say anything before you’re ready. 😅 I’m here… patiently, quietly, lovingly — waiting.</div>
-            <div class="letter-line" data-line="8">Not forcing, not rushing… 🥰 just staying with hope, with trust, with love. Kulsum, Maybe you are the kind of person who loves deeply but silently,</div>
+            <div class="letter-line" data-line="7">And it’s okay. You don’t have to say anything before you’re ready. 😅
+                I’m here… patiently, quietly, lovingly — waiting.</div>
+            <div class="letter-line" data-line="8">Not forcing, not rushing… 🥰 just staying with hope, with trust, with
+                love. Kulsum, Maybe you are the kind of person who loves deeply but silently,</div>
             <div class="letter-line" data-line="9">who cares strongly but hides it behind gentle words 🥹. </div>
-            <div class="letter-line" data-line="10">And I understand that. Maybe that’s why my heart naturally choose you 🫵 — because even your silence has meaning to me 🫶</div>
-            <div class="letter-line" data-line="11">On your birthday, I wish you a year filled with courage, the courage to smile freely, to dream boldly, and maybe one day…</div>
-            <div class="letter-line" data-line="12">to let your heart speak the words it’s been carrying for so long.</div>
-            <div class="letter-line" data-line="13">Until that day, I’ll still be here — loving you in my honest way, and holding space for the feelings you keep tucked away in your beautiful heart. 😭❤️</div>
+            <div class="letter-line" data-line="10">And I understand that. Maybe that’s why my heart naturally choose
+                you 🫵 — because even your silence has meaning to me 🫶</div>
+            <div class="letter-line" data-line="11">On your birthday, I wish you a year filled with courage, the courage
+                to smile freely, to dream boldly, and maybe one day…</div>
+            <div class="letter-line" data-line="12">to let your heart speak the words it’s been carrying for so long.
+            </div>
+            <div class="letter-line" data-line="13">Until that day, I’ll still be here — loving you in my honest way,
+                and holding space for the feelings you keep tucked away in your beautiful heart. 😭❤️</div>
             <div class="letter-line" data-line="14">🌸✨🎂 Happy Birthday, Kulsum 🎂✨🌸</div>
-            <div class="letter-line" data-line="15">On your special day, I pray your life fills with happiness, peace, and endless blessings 🌙✨.</div>
-            <div class="letter-line" data-line="16">May every moment ahead bring you reasons to smile 😊💖 and dreams that softly come true 💫🌟. </div>
-            <div class="letter-line" data-line="16">Kulsum, you deserve all the love in this world — the loud love that makes your heart race ❤️💯, </div>
-            <div class="letter-line" data-line="17">the soft love that feels like comfort 🤍, and even the silent love that stays unspoken but deeply felt 💞✨</div>
-            <div class="letter-line" data-line="18">Today isn’t just your birthday… It’s the celebration of you — your kindness, your warmth, your beautiful heart 💗🌼.</div>
+            <div class="letter-line" data-line="15">On your special day, I pray your life fills with happiness, peace,
+                and endless blessings 🌙✨.</div>
+            <div class="letter-line" data-line="16">May every moment ahead bring you reasons to smile 😊💖 and dreams
+                that softly come true 💫🌟. </div>
+            <div class="letter-line" data-line="16">Kulsum, you deserve all the love in this world — the loud love that
+                makes your heart race ❤️💯, </div>
+            <div class="letter-line" data-line="17">the soft love that feels like comfort 🤍, and even the silent love
+                that stays unspoken but deeply felt 💞✨</div>
+            <div class="letter-line" data-line="18">Today isn’t just your birthday… It’s the celebration of you — your
+                kindness, your warmth, your beautiful heart 💗🌼.</div>
             <div class="letter-line" data-line="19">🎉🌸 Once again Happy Birthday, Kulsum 🌸🎉</div>
-            <div class="letter-line" data-line="20">May Allah bless you with joy, success, good health, and a year full of magical moments ✨🤲💐</div>
+            <div class="letter-line" data-line="20">May Allah bless you with joy, success, good health, and a year full
+                of magical moments ✨🤲💐</div>
             <div class="letter-line" data-line="21">Stay blessed… stay happy… stay as precious as you are 💝✨.</div>
             <div class="letter-line" data-line="22">Love you Kulsum, Love you a lot 💖🌸</div>
             <div class="letter-sign">Forever yours, Mehtaab ✍️❤️</div>
@@ -2104,6 +2116,10 @@
 
     <!-- ===== CARD 12: FIREWORKS FINALE ===== -->
     <div id="card-finale" class="card">
+        <div class="prev-skip-row">
+            <button class="prev-btn" onclick="goToPrevCard()">⏮ Back</button>
+            <!-- <button class="skip-btn" onclick="skipSoundtrack()">Skip ⏭</button> -->
+        </div>
         <div class="emoji-heart-container" id="emoji-heart-container">
             <div class="finale-inner-content" id="finale-inner-content">
                 <div class="finale-name" id="finale-name">Kulsum</div>
@@ -2187,7 +2203,7 @@
                 if (activeId === 'card-cake' && !cakeClicked) {
                     document.querySelector('.cake-submsg').textContent = '🌬️ Blow out the candle first!';
                     document.querySelector('.cake-submsg').style.color = '#ffd700';
-                    setTimeout(function() {
+                    setTimeout(function () {
                         document.querySelector('.cake-submsg').style.color = '';
                         if (!cakeClicked) document.querySelector('.cake-submsg').textContent = 'Tap the flame to blow it out 🌬️';
                     }, 2000);
@@ -2196,7 +2212,7 @@
                 // Balloons card: must pop all balloons first
                 if (activeId === 'card-balloons' && poppedCount < totalBalloons) {
                     document.querySelector('.balloons-subtitle').textContent = '💕 Pop all balloons first!';
-                    setTimeout(function() {
+                    setTimeout(function () {
                         if (poppedCount < totalBalloons) document.querySelector('.balloons-subtitle').textContent = 'Tap each balloon to reveal hearts inside 💕';
                     }, 2000);
                     return;
@@ -2369,7 +2385,7 @@
                     reminderAudioPlayer.currentTime = 0;
                     reminderIsPlaying = false;
                     reminderCurrentTrack = -1;
-                    document.querySelectorAll('.reminder-track').forEach(function(t) {
+                    document.querySelectorAll('.reminder-track').forEach(function (t) {
                         t.classList.remove('playing');
                         t.querySelector('.reminder-track-icon i').className = 'fa-solid fa-play';
                     });
@@ -2500,10 +2516,19 @@
         var letterFullyRevealed = false;
 
         function initLetterCard() {
-            letterFullyRevealed = false;
             const lines = document.querySelectorAll('.letter-line');
             const sign = document.querySelector('.letter-sign');
             const btnContainer = document.querySelector('.letter-btn-container');
+
+            // If letter was already shown once, instantly reveal everything
+            if (letterFullyRevealed) {
+                lines.forEach(function (line) { line.classList.add('visible'); });
+                sign.classList.add('visible');
+                btnContainer.classList.add('visible');
+                return;
+            }
+
+            // First-time: animate the typewriter effect
             let delay = 500;
 
             lines.forEach((line, i) => {
@@ -2767,7 +2792,7 @@
             reminderAudioPlayer.currentTime = 0;
 
             // Reset UI
-            document.querySelectorAll('.reminder-track').forEach(function(t) {
+            document.querySelectorAll('.reminder-track').forEach(function (t) {
                 t.classList.remove('playing');
                 t.querySelector('.reminder-track-icon i').className = 'fa-solid fa-play';
             });
@@ -2789,7 +2814,7 @@
             if (bgAudioWasPlaying && bgAudioSrc) {
                 audioPlayer.src = bgAudioSrc;
                 audioPlayer.currentTime = bgAudioTime;
-                audioPlayer.play().catch(function() {});
+                audioPlayer.play().catch(function () { });
                 isPlaying = true;
                 document.getElementById('mini-player').classList.remove('paused');
                 updateMiniPlayerIcon();
@@ -2812,7 +2837,7 @@
             if (reminderCurrentTrack === index && !reminderIsPlaying) {
                 // Pause bg audio when reminder resumes
                 pauseBgAudio();
-                reminderAudioPlayer.play().catch(function() {});
+                reminderAudioPlayer.play().catch(function () { });
                 reminderIsPlaying = true;
                 el.querySelector('.reminder-track-icon i').className = 'fa-solid fa-pause';
                 return;
@@ -2821,7 +2846,7 @@
             // Switch to a new track — pause bg audio
             pauseBgAudio();
 
-            tracks.forEach(function(t) {
+            tracks.forEach(function (t) {
                 t.classList.remove('playing');
                 t.querySelector('.reminder-track-icon i').className = 'fa-solid fa-play';
             });
@@ -2829,7 +2854,7 @@
             reminderCurrentTrack = index;
             reminderAudioPlayer.src = reminderTracks[index].file;
             reminderAudioPlayer.loop = true;
-            reminderAudioPlayer.play().catch(function() {});
+            reminderAudioPlayer.play().catch(function () { });
             reminderIsPlaying = true;
 
             el.classList.add('playing');
@@ -2852,9 +2877,9 @@
         }
 
         // Handle reminder audio ending (won't fire with loop, but safety net)
-        reminderAudioPlayer.addEventListener('ended', function() {
+        reminderAudioPlayer.addEventListener('ended', function () {
             reminderIsPlaying = false;
-            document.querySelectorAll('.reminder-track').forEach(function(t) {
+            document.querySelectorAll('.reminder-track').forEach(function (t) {
                 t.querySelector('.reminder-track-icon i').className = 'fa-solid fa-play';
             });
             // Resume bg audio when reminder ends
