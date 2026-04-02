@@ -2992,20 +2992,47 @@
 
         function updateFinaleTimer() {
             const now = new Date();
-            let diff = now - BIRTH_DATE;
 
-            const years = Math.floor(diff / (365.25 * 24 * 60 * 60 * 1000));
-            diff -= years * 365.25 * 24 * 60 * 60 * 1000;
-            const days = Math.floor(diff / (24 * 60 * 60 * 1000));
-            diff -= days * 24 * 60 * 60 * 1000;
-            const hours = Math.floor(diff / (60 * 60 * 1000));
-            diff -= hours * 60 * 60 * 1000;
-            const minutes = Math.floor(diff / (60 * 1000));
-            diff -= minutes * 60 * 1000;
+            let years = now.getFullYear() - BIRTH_DATE.getFullYear();
+
+            // Check if birthday passed this year
+            const hasBirthdayPassed =
+                now.getMonth() > BIRTH_DATE.getMonth() ||
+                (now.getMonth() === BIRTH_DATE.getMonth() &&
+                    now.getDate() >= BIRTH_DATE.getDate());
+
+            if (!hasBirthdayPassed) {
+                years--;
+            }
+
+            // Last birthday date
+            let lastBirthday = new Date(
+                now.getFullYear(),
+                BIRTH_DATE.getMonth(),
+                BIRTH_DATE.getDate()
+            );
+
+            if (!hasBirthdayPassed) {
+                lastBirthday.setFullYear(now.getFullYear() - 1);
+            }
+
+            let diff = now - lastBirthday;
+
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            diff %= (1000 * 60 * 60 * 24);
+
+            const hours = Math.floor(diff / (1000 * 60 * 60));
+            diff %= (1000 * 60 * 60);
+
+            const minutes = Math.floor(diff / (1000 * 60));
+            diff %= (1000 * 60);
+
             const seconds = Math.floor(diff / 1000);
 
             const timerEl = document.getElementById('finale-timer');
-            timerEl.textContent = years + 'y ' + days + 'd ' + hours + 'h ' + minutes + 'm ' + seconds + 's of being amazing ✨';
+
+            timerEl.textContent =
+                `${years}y ${days}d ${hours}h ${minutes}m ${seconds}s of being amazing ✨`;
         }
 
 
